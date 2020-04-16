@@ -1,0 +1,1 @@
+# docker_postgres_asptnet_nginx
