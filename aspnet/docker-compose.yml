@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    networks:
+        - app
+    restart: unless-stopped
+  proxy:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - app
+    restart: unless-stopped
+networks: 
+  app:
+    driver: bridge
